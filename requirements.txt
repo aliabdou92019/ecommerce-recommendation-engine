@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+seaborn
+networkx
+mlxtend
+datasets
+transformers
+torch
+scikit-learn
+jupyter
