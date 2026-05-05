@@ -47,7 +47,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-@st.cache_data
 def load_csv(path):
     try:
         return pd.read_csv(path)
@@ -57,7 +56,7 @@ def load_csv(path):
 orders = load_csv("Data/orders.csv")
 products = load_csv("Data/products.csv")
 order_items = load_csv("Data/order_items.csv")
-rules = load_csv("results/association_rules.csv")
+rules = load_csv("Data/Final_rules.csv")
 pagerank = load_csv("results/pagerank_scores.csv")
 sentiment = load_csv("results/sentiment_results.csv")
 recommendations = load_csv("results/final_recommendations.csv")
@@ -228,14 +227,31 @@ elif page == "💬 Sentiment Analysis":
 
 elif page == "✅ Final Recommendations":
     st.title("✅ Final Recommendations")
-
-    if recommendations.empty:
-        st.warning("No final recommendations file found.")
-    else:
+    st.markdown("Enter a product name to get personalized recommendations based on Association Rules and PageRank.")
+    
+    from recommendation_engine import get_recommendations
+    
+    product_input = st.text_input("Product Name", "Mouse Chartreuse 292")
+    
+    if st.button("Get Recommendations"):
+        recs_df, message = get_recommendations(product_input, rules, pagerank)
+        
+        if "Found exact match" in message:
+            st.success(message)
+        elif "Using closest match" in message:
+            st.info(message)
+        else:
+            st.error(message)
+            
+        if recs_df is not None and not recs_df.empty:
+            st.dataframe(recs_df, use_container_width=True)
+            
+            # Update the underlying file
+            recs_df.to_csv("results/final_recommendations.csv", index=False)
+        elif recs_df is not None and recs_df.empty:
+            st.warning("No recommendations found for this product.")
+            
+    st.markdown("---")
+    st.subheader("Previous Recommendations Data")
+    if not recommendations.empty:
         st.dataframe(recommendations, use_container_width=True)
-
-        numeric_cols = recommendations.select_dtypes(include="number").columns
-
-        if len(numeric_cols) > 0:
-            st.subheader("Numeric Summary")
-            st.dataframe(recommendations[numeric_cols].describe(), use_container_width=True)
