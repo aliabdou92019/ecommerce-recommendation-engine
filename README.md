@@ -396,35 +396,23 @@ All computed outputs are saved in the `results/` directory:
 | `sentiment_results.csv` | ~2.5M | Sentiment predictions for product reviews |
 | `final_recommendations.csv` | Variable | Context-dependent product recommendations |
 
----
-
-## 🤝 Contributing
-
-Contributions, bug reports, and feature requests are welcome!
-
-1. **Fork** the repository
-2. **Create** a feature branch — `git checkout -b feature/your-feature`
-3. **Commit** your changes — `git commit -m "Add your feature"`
-4. **Push** to the branch — `git push origin feature/your-feature`
-5. **Open** a Pull Request
-
----
+--
 
 ## 👥 Team Member Roles
 
 This project was built collaboratively by our engineering team:
 
-- **Amira Azzam** — Developed the security layer, working on all related files to users, JWT authentication, and authorization.
+- **Amira Azzam** — BERT .
 
-- **Ali Abdo** — Worked on all related files to products, including CRUD operations, stock management, and filtering.
+- **Ali Abdo** — BERT.
 
-- **Youssef Waheed** — Built the foundational structure, designed the database and ORM models, and acted mainly as the consultant and architect for the project.
+- **Youssef Waheed** — PageRank.
 
-- **Maria Gerges** — Worked comprehensively on all files and logic related to the shopping cart, including the Redis caching implementations.
+- **Maria Gerges** — PageRank.
 
-- **Yousef Medhat** — Developed all files and logic related to the order processing system and order item management.
+- **Yousef Medhat** — FP-Growth.
 
-- **Amr Yasser** — Worked on all related files to categories and developed the entire frontend application and user interface.
+- **Mohamed Galal** — FP-Growth.
 
 ---
 
