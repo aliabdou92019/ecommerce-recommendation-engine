@@ -303,8 +303,8 @@ The project ships with a **Streamlit-based interactive dashboard** (`app.py`) fe
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aliabdou92019/DataMiningProject.git
-cd DataMiningProject
+git clone https://github.com/aliabdou92019/ecommerce-recommendation-engine.git
+cd ecommerce-recommendation-engine
 ```
 
 ### 2. Create a Virtual Environment
