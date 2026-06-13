@@ -114,7 +114,7 @@ flowchart TD
 ## 📁 Repository Structure
 
 ```
-DataMiningProject/
+ecommerce-recommendation-engine/
 │
 ├── 📂 Data/                                  # Input datasets
 │   ├── orders.csv                            # 33,580 customer orders
